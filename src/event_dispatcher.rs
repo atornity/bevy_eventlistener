@@ -33,7 +33,7 @@ pub struct EventDispatcher<E: EntityEvent> {
     /// - This allows us to jump to the next listener in the hierarchy without unnecessary
     ///   traversal. When bubbling many events of the same type `E` through the same entity tree,
     ///   this can save a significant amount of work.
-    pub(crate) listener_graph: HashMap<Entity, (CallbackSystem, Option<Entity>)>,
+    pub listener_graph: HashMap<Entity, (CallbackSystem, Option<Entity>)>,
 }
 
 impl<E: EntityEvent> EventDispatcher<E> {
