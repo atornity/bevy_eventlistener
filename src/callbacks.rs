@@ -86,6 +86,15 @@ pub struct ListenerInput<E: EntityEvent> {
 }
 
 impl<E: EntityEvent> ListenerInput<E> {
+    /// Create a new `ListenerInput`.
+    pub fn new(listener: Entity, event_data: E, propagate: bool) -> Self {
+        Self {
+            listener,
+            event_data,
+            propagate,
+        }
+    }
+
     /// The entity that was listening for this event. Call `target()` to get the entity that this
     /// event originally targeted before it started bubbling through the hierarchy. Note that the
     /// target and listener can be the same entity.
