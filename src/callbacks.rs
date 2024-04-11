@@ -19,7 +19,8 @@ pub enum CallbackSystem {
 }
 
 impl CallbackSystem {
-    pub(crate) fn run(&mut self, world: &mut World) {
+    /// Initialize the system if it is not already and then run it.
+    pub fn run(&mut self, world: &mut World) {
         let mut system = match std::mem::take(self) {
             CallbackSystem::Empty => return,
             CallbackSystem::New(mut system) => {
