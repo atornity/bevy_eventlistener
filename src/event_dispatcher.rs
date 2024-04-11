@@ -22,7 +22,7 @@ pub struct EventDispatcher<E: EntityEvent> {
     /// All the events of type `E` that were emitted this frame, and encountered an [`On<E>`] while
     /// traversing the entity hierarchy. The `Entity` in the tuple is the leaf node to use when
     /// traversing the listener graph.
-    pub(crate) events: Vec<(E, Entity)>,
+    pub events: Vec<(E, Entity)>,
     /// Traversing the entity hierarchy for each event can visit the same entity multiple times.
     /// Storing the callbacks for each of these potentially visited entities in a graph structure is
     /// necessary for a few reasons:
